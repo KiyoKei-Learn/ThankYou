@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You - Barista Brew</title>
+  <link rel="stylesheet" href="checkout.css"> <!-- Optional: reuse your styles -->
+  <style>
+    body {
+      background: url('Pictures/bg4.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #2d1b0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .thank-you {
+      background-color: rgba(255,255,255,0.95);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .thank-you h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .thank-you p {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you">
+    <h1>Thank You for Your Order! ☕</h1>
+    <p>We're now processing it and will have it ready for your selected pick-up time.</p>
+    <p>Check your GCash for the confirmation.</p>
+    <a href="index.html" style="display:inline-block; margin-top: 1.5rem; color: #fff; background-color: #a47148; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none;">Back to Home</a>
+    <form id="checkoutForm" action="https://formspree.io/f/xoveyvpk?redirect=https://yourdomain.com/thankyou.html" method="POST" onsubmit="showModal();">
+        <input type="hidden" name="_redirect" value="thankyou.html">
+        <div id="confirmationMessage" style="display: none; margin-top: 1rem; color: green; font-weight: bold;">
+            ✅ Order received! We're processing it now.
+          </div>
+  </div>
+  <!-- Order Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <img src="logos.jpg" alt="Barista Brew Logo" class="modal-logo">
+      <span class="checkmark">✅</span>
+      <h2>Order Received!</h2>
+      <p>Your order is being processed.<br>Thank you for choosing <strong>Barista Brew</strong>!</p>
+    </div>
+  </div>
+  
+  <script>
+    function showProcessingMessage() {
+      document.getElementById("confirmationMessage").style.display = "block";
+      return true; // allow form to submit
+    }
+    
+  function showModal() {
+    document.getElementById("confirmationModal").style.display = "block";
+  }
+    </script>
+</body>
+</html>
